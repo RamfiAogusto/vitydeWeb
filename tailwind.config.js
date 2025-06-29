@@ -18,6 +18,7 @@ export default {
           foreground: "rgb(var(--muted-foreground) / <alpha-value>)",
         },
         ring: "rgb(var(--ring) / <alpha-value>)",
+        input: "rgb(var(--input) / <alpha-value>)",
       },
       keyframes: {
         "fade-in": {
