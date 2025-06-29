@@ -1,9 +1,11 @@
 import HeroSection from './components/HeroSection'
 import ServicesSection from './components/ServicesSection'
 import PortfolioSection from './components/PortfolioSection'
-import TestimonialsSection from './components/TestimonialsSection'
 import ProcessSection from './components/ProcessSection'
+import TestimonialsSection from './components/TestimonialsSection'
+import FaqSection from './components/FaqSection'
 import ContactSection from './components/ContactSection'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -13,7 +15,9 @@ const App = () => {
       <PortfolioSection />
       <ProcessSection />
       <TestimonialsSection />
+      <FaqSection />
       <ContactSection />
+      <Footer />
     </div>
   )
 }

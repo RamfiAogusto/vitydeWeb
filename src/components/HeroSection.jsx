@@ -25,7 +25,7 @@ const HeroSection = () => {
         this.size = Math.random() * 3 + 1
         this.speedX = Math.random() * 1 - 0.5
         this.speedY = Math.random() * 1 - 0.5
-        this.color = `rgba(${Math.floor(Math.random() * 100 + 100)}, ${Math.floor(Math.random() * 100 + 100)}, ${Math.floor(Math.random() * 155 + 100)}, ${Math.random() * 0.5 + 0.1})`
+        this.color = `rgba(${Math.floor(Math.random() * 100 + 150)}, ${Math.floor(Math.random() * 100 + 150)}, ${Math.floor(Math.random() * 155 + 100)}, ${Math.random() * 0.8 + 0.2})`
       }
 
       update() {
@@ -66,10 +66,10 @@ const HeroSection = () => {
           const dy = particles[i].y - particles[j].y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 100) {
+          if (distance < 120) {
             ctx.beginPath()
-            ctx.strokeStyle = `rgba(124, 58, 237, ${0.1 - distance / 1000})`
-            ctx.lineWidth = 0.5
+            ctx.strokeStyle = `rgba(124, 58, 237, ${0.3 - distance / 400})`
+            ctx.lineWidth = 1
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
             ctx.stroke()
@@ -83,6 +83,7 @@ const HeroSection = () => {
     const handleResize = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
+      particles.length = 0
       init()
     }
 
@@ -107,14 +108,14 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20">
+    <section className="relative h-screen flex items-center pt-16">
       <canvas 
         ref={canvasRef} 
-        className="absolute inset-0 -z-10" 
-        style={{ opacity: 0.6 }} 
+        className="absolute inset-0 z-0 w-full h-full" 
+        style={{ opacity: 0.9 }} 
       />
 
-      <div className="container mx-auto px-4 md:px-6 py-10 md:py-20">
+      <div className="container mx-auto px-4 md:px-6 py-10 md:py-20 relative z-10">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
           <div className="space-y-8">
             <div className="inline-block rounded-lg bg-blue-500/10 px-3 py-1 text-sm text-blue-500 mb-4">
