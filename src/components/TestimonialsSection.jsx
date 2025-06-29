@@ -140,7 +140,7 @@ const TestimonialsSection = () => {
             <Button
               variant="outline"
               size="icon"
-              className="rounded-full text-slate-300 hover:text-slate-900"
+              className="rounded-full"
               onClick={() => handleManualNavigation(prevTestimonial)}
               aria-label="Testimonio anterior"
             >
@@ -164,7 +164,7 @@ const TestimonialsSection = () => {
             <Button
               variant="outline"
               size="icon"
-              className="rounded-full text-slate-300 hover:text-slate-900"
+              className="rounded-full"
               onClick={() => handleManualNavigation(nextTestimonial)}
               aria-label="Siguiente testimonio"
             >

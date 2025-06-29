@@ -150,7 +150,7 @@ const PortfolioSection = () => {
                           <Button 
                             size="sm" 
                             variant="outline" 
-                            className="gap-2 text-slate-100 hover:text-slate-900"
+                            className="gap-2"
                             onClick={() => handleViewProject(project)}
                           >
                             Ver proyecto
@@ -177,7 +177,7 @@ const PortfolioSection = () => {
         <div className="text-center mt-12">
           <Button 
             variant="outline" 
-            className="gradient-border gap-2 text-slate-100 hover:text-slate-900"
+            className="gradient-border gap-2"
             onClick={handleViewMore}
           >
             Ver más proyectos

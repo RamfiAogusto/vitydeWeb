@@ -144,7 +144,7 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="gradient-border text-slate-100 hover:text-slate-900"
+                className="gradient-border"
                 onClick={handleVerPortafolio}
               >
                 Ver portafolio

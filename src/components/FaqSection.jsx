@@ -48,12 +48,6 @@ const faqs = [
 ]
 
 const FaqSection = () => {
-  const [openItems, setOpenItems] = useState([])
-
-  const toggleItem = (value) => {
-    setOpenItems((prev) => (prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]))
-  }
-
   const handleContactClick = () => {
     console.log("Contactar ahora")
     // Aquí puedes agregar lógica para scroll al formulario de contacto
@@ -78,7 +72,7 @@ const FaqSection = () => {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="multiple" value={openItems} className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
@@ -89,18 +83,14 @@ const FaqSection = () => {
               >
                 <AccordionItem
                   value={`item-${index}`}
-                  className={cn(
-                    "border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50 backdrop-blur-sm",
-                    openItems.includes(`item-${index}`) ? "gradient-border" : "",
-                  )}
+                  className="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50 backdrop-blur-sm data-[state=open]:gradient-border"
                 >
-                  <AccordionTrigger
-                    onClick={() => toggleItem(`item-${index}`)}
-                    className="px-6 py-4 hover:no-underline text-slate-100"
-                  >
-                    <span className="text-left font-medium">{faq.question}</span>
+                  <AccordionTrigger className="px-6 py-4 hover:no-underline text-slate-100 text-left">
+                    {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 pt-2 text-slate-400">{faq.answer}</AccordionContent>
+                  <AccordionContent className="px-6 pb-4 pt-2 text-slate-400">
+                    {faq.answer}
+                  </AccordionContent>
                 </AccordionItem>
               </motion.div>
             ))}
