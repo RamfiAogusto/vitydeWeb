@@ -21,16 +21,18 @@ export default function HeroSection() {
     const particleCount = 100
 
     class Particle {
+      private canvas: HTMLCanvasElement
+      private ctx: CanvasRenderingContext2D
       x: number
       y: number
       size: number
       speedX: number
       speedY: number
       color: string
-      canvas: HTMLCanvasElement
 
-      constructor(canvas: HTMLCanvasElement) {
+      constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
         this.canvas = canvas
+        this.ctx = ctx
         this.x = Math.random() * this.canvas.width
         this.y = Math.random() * this.canvas.height
         this.size = Math.random() * 3 + 1
@@ -51,22 +53,21 @@ export default function HeroSection() {
       }
 
       draw() {
-        if (!ctx) return // early return si ctx es null
-        ctx.fillStyle = this.color
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.fill()
+        this.ctx.fillStyle = this.color
+        this.ctx.beginPath()
+        this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
+        this.ctx.fill()
       }
     }
 
     const init = () => {
+      particles.length = 0
       for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle(canvas))
+        particles.push(new Particle(canvas, ctx))
       }
     }
 
     const animate = () => {
-      if (!ctx || !canvas) return // early return si ctx o canvas es null
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       for (let i = 0; i < particles.length; i++) {
@@ -94,7 +95,6 @@ export default function HeroSection() {
     }
 
     const handleResize = () => {
-      if (!canvas) return // early return si canvas es null
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       init()

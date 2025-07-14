@@ -6,6 +6,7 @@ import { ArrowUpRight, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 const categories = ["Todos", "Corporativos", "E-commerce", "Landing Pages"]
 
@@ -152,10 +153,12 @@ export default function PortfolioSection() {
         </Tabs>
 
         <div className="text-center mt-12">
-          <Button variant="outline" className="gradient-border gap-2 bg-transparent">
-            Ver más proyectos
-            <ArrowUpRight className="h-4 w-4" />
-          </Button>
+          <Link href="/portafolio">
+            <Button variant="outline" className="gradient-border gap-2 bg-transparent">
+              Ver más proyectos
+              <ArrowUpRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
